@@ -1,0 +1,19 @@
+{
+    "keybinds":{
+        "<Control-f>": {
+            "command":"\\frac",
+            "params":2,
+            "spacer":""
+        },
+        "<Control-b>": {
+            "command":"\\int_",
+            "params":2,
+            "spacer":"^"
+        },
+        "<Control-s>": {
+            "command":"\\sin",
+            "params":1,
+            "spacer":""
+        }
+    }
+}
