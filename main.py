@@ -55,7 +55,9 @@ def updatePreview(event=None):
 
 def renderPreview():
     global previewUpdateJob
-    latex = latexText.get("1.0", tk.END).strip()
+    latex = latexText.get("1.0", tk.END).strip()#.replace("\n",r"\\").replace(" ",r"\ ")
+    #latex = r"\[\begin{aligned}"+latex+ r"\end{aligned}\]"
+    print(latex)
     if not latex:
         return
 
@@ -68,7 +70,7 @@ def renderPreview():
 
 
 root = tk.Tk()
-root.title("Texbind")
+root.title("Texture")
 
 root.columnconfigure(0, weight=1)
 root.columnconfigure(1, weight=1)
@@ -90,6 +92,8 @@ def getNumberLength(line):
     return int(idx)
 def getStart(line,params):
     count = 0
+    if params == 0:
+        return len(line)-1
     for i in range(1,len(line)):
         if line[len(line)-i] == " " and i != 0 and line[len(line)-i-1] != " ":
             count += 1
@@ -113,7 +117,7 @@ def keybind(event,command,params,spacer=None):
         first = int(latexText.index("sel.first").split(".")[1])
         last = int(latexText.index("sel.last").split(".")[1])
     else:
-        if getStart(latexText.get(indexToFull(0), latexText.index("insert")),params) == None:
+        if getStart(latexText.get(indexToFull(0), latexText.index("insert")),params) == None and params > 0:
             return 
         first = getStart(latexText.get(indexToFull(0), latexText.index("insert")),params)+1
         last = int(latexText.index("insert").split(".")[1])
@@ -142,7 +146,7 @@ def keybind(event,command,params,spacer=None):
             latexText.insert(indexToFull(first),spacer)
             first += 1
             last += 1
-    latexText.mark_set("insert", indexToFull(last))
+    latexText.mark_set("insert", indexToFull(first))
 
 
 

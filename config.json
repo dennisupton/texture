@@ -1,19 +1,45 @@
 {
     "keybinds":{
-        "<Control-f>": {
+        "<Alt-f>": {
             "command":"\\frac",
             "params":2,
             "spacer":""
         },
-        "<Control-b>": {
+        "<Alt-b>": {
             "command":"\\int_",
             "params":2,
             "spacer":"^"
         },
-        "<Control-s>": {
+        "<Alt-s>": {
             "command":"\\sin",
             "params":1,
             "spacer":""
+        },
+        "<Alt-c>": {
+            "command":"\\cos",
+            "params":1,
+            "spacer":""
+        },
+        "<Alt-t>": {
+            "command":"\\tan",
+            "params":1,
+            "spacer":""
+        },
+        "<Alt-d>": {
+            "command":"\\theta",
+            "params":0,
+            "spacer":""
+        },
+        "<Alt-e>": {
+            "command":"\\equiv",
+            "params":0,
+            "spacer":""
+        },
+        "<Alt-q>": {
+            "command":"\\alpha",
+            "params":0,
+            "spacer":""
         }
+
     }
 }
